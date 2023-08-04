@@ -16,6 +16,7 @@ import {
   FlexItem,
   Grid,
   GridItem,
+  Icon,
   PageSection,
   PageSectionVariants,
   Stack,
@@ -33,7 +34,7 @@ function OverviewPage() {
   const { isEntitled } = useContext(AppContext);
   return (
     <div>
-      <PageSection variant={PageSectionVariants.light} className="pf-u-p-2xl">
+      <PageSection variant={PageSectionVariants.light} className="pf-v5-u-p-2xl">
         <Flex direction={{ default: 'column' }}>
           <FlexItem>
             <Grid hasGutter>
@@ -47,7 +48,7 @@ function OverviewPage() {
                   </TextContent>
                   <TextContent
                     component={TextVariants.p}
-                    className="pf-u-color-200 pf-u-font-size-lg"
+                    className="pf-v5-u-color-200 pf-v5-u-font-size-lg"
                   >
                     <Text>
                       Fully hosted cloud service for protecting cloud native
@@ -95,7 +96,7 @@ function OverviewPage() {
       <PageSection>
         <Grid hasGutter lg={6}>
           <GridItem>
-            <Card className="pf-u-h-100">
+            <Card className="pf-v5-u-h-100">
               <CardHeaderMain>
                 <CardTitle>
                   <Flex>
@@ -106,7 +107,7 @@ function OverviewPage() {
                     </FlexItem>
                     <FlexItem>
                       <TextContent>
-                        <Text className="pf-u-color-200">
+                        <Text className="pf-v5-u-color-200">
                           (US/Canada or EMEA only)
                         </Text>
                       </TextContent>
@@ -120,7 +121,7 @@ function OverviewPage() {
               </CardBody>
               <CardFooter>
                 <Flex>
-                  <FlexItem className="pf-u-mt-md pf-u-mb-md">
+                  <FlexItem className="pf-v5-u-mt-md pf-v5-u-mb-md">
                     <Button
                       variant={ButtonVariant.link}
                       component="a"
@@ -129,12 +130,14 @@ function OverviewPage() {
                       isInline
                     >
                       AWS Marketplace (North America)
-                      <ExternalLinkAltIcon
-                        className="pf-u-ml-md"
+                      <Icon
+                        className="pf-v5-u-ml-md"
                         color="currentColor"
                         noVerticalAlign={false}
                         size="sm"
-                      />
+                      >
+                        <ExternalLinkAltIcon />
+                      </Icon>
                     </Button>
                   </FlexItem>
                   <FlexItem>
@@ -146,12 +149,14 @@ function OverviewPage() {
                       isInline
                     >
                       AWS Marketplace (EMEA)
-                      <ExternalLinkAltIcon
-                        className="pf-u-ml-md"
+                      <Icon
+                        className="pf-v5-u-ml-md"
                         color="currentColor"
                         noVerticalAlign={false}
                         size="sm"
-                      />
+                      >
+                        <ExternalLinkAltIcon />
+                      </Icon>
                     </Button>
                   </FlexItem>
                 </Flex>
@@ -159,7 +164,7 @@ function OverviewPage() {
             </Card>
           </GridItem>
           <GridItem>
-            <Card className="pf-u-h-100">
+            <Card className="pf-v5-u-h-100">
               <CardHeaderMain>
                 <CardTitle>
                   <Flex>
@@ -170,7 +175,7 @@ function OverviewPage() {
                     </FlexItem>
                     <FlexItem>
                       <TextContent>
-                        <Text className="pf-u-color-200">
+                        <Text className="pf-v5-u-color-200">
                           (Available for all regions)
                         </Text>
                       </TextContent>
@@ -194,12 +199,14 @@ function OverviewPage() {
                       isInline
                     >
                       Contact sales
-                      <ExternalLinkAltIcon
-                        className="pf-u-ml-md"
+                      <Icon
+                        className="pf-v5-u-ml-md"
                         color="currentColor"
                         noVerticalAlign={false}
                         size="sm"
-                      />
+                      >
+                        <ExternalLinkAltIcon />
+                      </Icon>
                     </Button>
                   </FlexItem>
                 </Flex>
@@ -209,7 +216,7 @@ function OverviewPage() {
         </Grid>
       </PageSection>
       <PageSection>
-        <Card className="pf-u-h-100">
+        <Card className="pf-v5-u-h-100">
           <CardTitle>
             <TextContent>
               <Text component="h2">Pricing model</Text>
@@ -233,7 +240,7 @@ function OverviewPage() {
                   </DescriptionList>
                 </FlexItem>
               </Flex>
-              <Divider isVertical />
+              <Divider orientation={{ default: 'vertical' }} />
               <FlexItem flex={{ default: 'flex_1' }}>
                 <TextContent>
                   <Text component="p">
@@ -253,7 +260,7 @@ function OverviewPage() {
               <Text component="h2">Brief demo</Text>
             </TextContent>
           </CardTitle>
-          <CardBody className="pf-u-w-100 pf-u-w-75-on-lg pf-u-w-50-on-xl">
+          <CardBody className="pf-v5-u-w-100 pf-v5-u-w-75-on-lg pf-v5-u-w-50-on-xl">
             <div className="marketing-video">
               <iframe
                 src="https://www.youtube.com/embed/uPjvVGjoiZw"
