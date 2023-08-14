@@ -1,51 +1,49 @@
 /* eslint-disable react/prop-types */
 import React, { useState } from 'react';
-import {
-	Select,
-	SelectVariant
-} from '@patternfly/react-core/deprecated';
+import { MenuToggle, Select, SelectList } from '@patternfly/react-core';
 
 function SelectSingle({
-  toggleIcon,
   id,
   value,
   handleSelect,
   isDisabled = false,
   children,
-  direction = 'down',
-  isCreatable = false,
-  variant = null,
-  placeholderText = '',
-  menuAppendTo = undefined,
+  placeholderText = 'Select a value',
 }) {
   const [isOpen, setIsOpen] = useState(false);
 
-  const isTypeahead =
-    variant === 'typeahead' ? SelectVariant.typeahead : SelectVariant.single;
-
-  function onSelect(_event, selection) {
+  function onSelect(_event, selected) {
     // The mouse event is not useful.
     setIsOpen(false);
-    handleSelect(id, selection);
+    handleSelect(id, selected);
   }
+
+  const onToggleClick = () => {
+    setIsOpen(!isOpen);
+  };
+
+  const toggle = (toggleRef) => (
+    <MenuToggle
+      ref={toggleRef}
+      onClick={onToggleClick}
+      isExpanded={isOpen}
+      isDisabled={isDisabled}
+    >
+      {value || placeholderText}
+    </MenuToggle>
+  );
 
   return (
     <Select
-      variant={isTypeahead}
-      toggleIcon={toggleIcon}
-      id={id}
-      isDisabled={isDisabled}
+      id="single-select"
       isOpen={isOpen}
+      selected={value}
       onSelect={onSelect}
-      onToggle={(_event, val) => setIsOpen(val)}
-      selections={value}
-      direction={direction}
-      isCreatable={isCreatable}
-      placeholderText={placeholderText}
-      toggleId={id}
-      menuAppendTo={menuAppendTo}
+      onOpenChange={(_event, isOpen) => setIsOpen(isOpen)}
+      toggle={toggle}
+      shouldFocusToggleOnSelect
     >
-      {children}
+      <SelectList>{children}</SelectList>
     </Select>
   );
 }
